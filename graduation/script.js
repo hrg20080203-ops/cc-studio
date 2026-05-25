@@ -143,6 +143,8 @@ document.querySelectorAll(".gallery-item.feature").forEach((item) => {
     lightboxImg.alt = img.alt;
     lightboxImg.hidden = false;
     lightboxCaption.textContent = item.dataset.caption || "";
+    const originalLink = document.getElementById("lightboxOriginal");
+    if (originalLink) originalLink.href = img.src;
     lightbox.hidden = false;
     document.body.style.overflow = "hidden";
   });

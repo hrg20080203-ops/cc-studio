@@ -324,6 +324,13 @@ a[href*="jzjsxy"]:hover {
   object-fit: contain;
 }
 .lightbox-caption { color: var(--text); font-size: 1.2rem; margin-top: 24px; text-align: center; font-weight: 500; }
+.lightbox-original {
+  display: inline-block; margin-top: 20px; padding: 10px 24px;
+  border: 1px solid rgba(255,255,255,0.25); border-radius: 999px;
+  color: var(--text); font-size: 0.9rem; text-decoration: none;
+  transition: background 0.25s, border-color 0.25s;
+}
+.lightbox-original:hover { background: rgba(255,255,255,0.1); border-color: var(--accent-1); }
 
 /* Animations */
 @keyframes fadeInUp {
