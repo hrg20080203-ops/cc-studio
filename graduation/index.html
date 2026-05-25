@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>荆州技师学院 · 23计算机1班 · 2026 毕业季</title>
+  <title>23计算机1班</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="confetti" aria-hidden="true"></div>
+  <canvas id="particles"></canvas>
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="logo">🎓 23计算机1班</a>
+      <a href="#" class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">23计算机1班</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#story">我们的故事</a></li>
         <li><a href="#timeline">三年时光</a></li>
@@ -28,60 +31,72 @@
   </nav>
 
   <header class="hero">
-    <div class="hero-overlay"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
     <div class="hero-content">
-      <p class="hero-year">荆州技师学院 · CLASS OF 2026</p>
-      <h1>23计算机1班<br><em>永不散场的青春</em></h1>
-      <p class="hero-sub">从军训的烈日到实训的键盘，三年同窗，一朝别离。愿此去繁花似锦，再相逢依旧少年。</p>
-      <p class="hero-class">四连 · 23计算机1班</p>
-      <div class="hero-meta">
-        <div class="meta-item">
-          <span class="meta-num">1095</span>
-          <span class="meta-label">共度的日子</span>
+      <div class="hero-badge">CLASS OF 2026</div>
+      <h1>
+        <span class="hero-line-1">荆州技师学院</span>
+        <span class="hero-line-2">
+          <span class="gradient-text">23计算机1班</span>
+        </span>
+        <span class="hero-line-3">永不散场的青春</span>
+      </h1>
+      <p class="hero-desc">
+        从军训的烈日到实训的键盘，三年同窗，一朝别离。<br>愿此去繁花似锦，再相逢依旧少年。
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-count="1095">0</span>
+          <span class="stat-label">共度的日子</span>
         </div>
-        <div class="meta-divider"></div>
-        <div class="meta-item">
-          <span class="meta-num">45</span>
-          <span class="meta-label">并肩的伙伴</span>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="45">0</span>
+          <span class="stat-label">并肩的伙伴</span>
         </div>
-        <div class="meta-divider"></div>
-        <div class="meta-item">
-          <span class="meta-num">∞</span>
-          <span class="meta-label">未完的故事</span>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num infinite">&infin;</span>
+          <span class="stat-label">未完的故事</span>
         </div>
       </div>
-      <a href="#story" class="btn-scroll">开启回忆 ↓</a>
+      <a href="#story" class="scroll-indicator">
+        <span>探索我们的故事</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5"/><path d="M7 6l5 5 5-5"/></svg>
+      </a>
     </div>
-    <div class="floating-cap" aria-hidden="true">🎓</div>
   </header>
 
   <main>
     <section id="story" class="section">
       <div class="container">
-        <span class="section-tag">OUR STORY</span>
-        <h2>我们的故事</h2>
+        <div class="section-header">
+          <span class="section-tag">OUR STORY</span>
+          <h2>我们的故事</h2>
+        </div>
         <div class="story-grid">
-          <div class="story-text">
-            <p class="lead">
-              还记得2023年第一次踏进荆州技师学院时的忐忑吗？军训场上四连的呐喊、
-              机房里敲下的第一行代码、晚自习后一起走过的那条路——每一帧，都是青春最珍贵的底片。
+          <div class="story-content">
+            <p class="story-lead">
+              还记得2023年第一次踏进荆州技师学院时的忐忑吗？军训场上四连的呐喊、机房里敲下的第一行代码、晚自习后一起走过的那条路——每一帧，都是青春最珍贵的底片。
             </p>
-            <p>
-              23计算机1班的我们，曾在实训室里并肩调试程序，也在走廊里分享过秘密与梦想。
-              那些看似平凡的日子，如今回头看，都闪着光。
+            <p class="story-text">
+              23计算机1班的我们，曾在实训室里并肩调试程序，也在走廊里分享过秘密与梦想。那些看似平凡的日子，如今回头看，都闪着光。
             </p>
-            <blockquote>
-              "愿你们此去前程似锦，再相逢依旧如故。"
+            <blockquote class="story-quote">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" opacity="0.3"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+              <p>愿你们此去前程似锦，再相逢依旧如故。</p>
             </blockquote>
           </div>
           <div class="story-visual">
-            <div class="photo-frame main">
-              <img src="class-photo.png" alt="23计算机1班 班级合影" class="photo-img">
+            <div class="story-photo-main">
+              <img src="class-photo.png" alt="23计算机1班 班级合影">
+              <div class="photo-border"></div>
             </div>
-            <div class="photo-frame sub">
-              <div class="photo-placeholder">
-                <span>🏫</span>
-                <p>荆州技师学院</p>
+            <div class="story-photo-sub">
+              <div class="school-badge">
+                <span class="badge-icon">🏫</span>
+                <span class="badge-text">荆州技师学院</span>
               </div>
             </div>
           </div>
@@ -89,38 +104,49 @@
       </div>
     </section>
 
-    <section id="timeline" class="section section-alt">
+    <section id="timeline" class="section section-dark">
       <div class="container">
-        <span class="section-tag">THREE YEARS</span>
-        <h2>三年时光轴</h2>
+        <div class="section-header">
+          <span class="section-tag">THREE YEARS</span>
+          <h2>三年时光轴</h2>
+        </div>
         <div class="timeline">
+          <div class="timeline-line"></div>
           <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card glass-card">
               <time>2023 · 一年级</time>
               <h3>初遇 · 军训与相识</h3>
               <p>四连的旗帜下，我们穿上迷彩服相识。23计算机1班，从这一刻起有了名字。</p>
             </div>
           </article>
           <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card glass-card">
               <time>2024 · 二年级</time>
               <h3>相知 · 技能与成长</h3>
               <p>专业课渐入佳境，实训室里键盘声不绝。我们开始懂得坚持，也学会了互相扶持。</p>
             </div>
           </article>
           <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card highlight">
+            <div class="timeline-marker">
+              <div class="marker-dot marker-glow"></div>
+            </div>
+            <div class="timeline-card glass-card highlight">
               <time>2025 · 三年级</time>
               <h3>同窗 · 赛场与日常</h3>
               <p>三年没有实习，但我们在校园里留下了足够的回忆——两届运动会领奖台、实训室的代码，还有彼此。</p>
             </div>
           </article>
           <article class="timeline-item">
-            <div class="timeline-dot final"></div>
-            <div class="timeline-card">
+            <div class="timeline-marker">
+              <div class="marker-dot marker-final"></div>
+            </div>
+            <div class="timeline-card glass-card">
               <time>2026 · 毕业</time>
               <h3>启程 · 各自精彩</h3>
               <p>告别荆州技师学院的那一刻，不是结束，而是各自奔赴星辰大海的开始。</p>
@@ -132,57 +158,85 @@
 
     <section id="gallery" class="section">
       <div class="container">
-        <span class="section-tag">MEMORIES</span>
-        <h2>青春相册</h2>
-        <p class="section-desc">三年没有实习，但每一张照片里，都有我们最真实的青春</p>
+        <div class="section-header">
+          <span class="section-tag">MEMORIES</span>
+          <h2>青春相册</h2>
+          <p class="section-desc">三年没有实习，但每一张照片里，都有我们最真实的青春</p>
+        </div>
         <div class="gallery">
-          <figure class="gallery-item wide" data-caption="军训 · 23计算机1班 · 四连">
-            <div class="gallery-img"><img src="class-photo.png" alt="班级军训合影" class="gallery-photo"></div>
+          <figure class="gallery-item feature" data-caption="军训 · 23计算机1班 · 四连">
+            <img src="class-photo.png" alt="班级军训合影">
+            <div class="gallery-overlay">
+              <span class="overlay-text">军训 · 23计算机1班 · 四连</span>
+            </div>
           </figure>
-          <figure class="gallery-item wide" data-caption="2024 · 第一届运动会 · 23计算机1班领奖">
-            <div class="gallery-img"><img src="sports-2024.png" alt="2024年第一届运动会" class="gallery-photo"></div>
+          <figure class="gallery-item feature" data-caption="2024 · 第一届运动会 · 领奖">
+            <img src="sports-2024.png" alt="2024年第一届运动会">
+            <div class="gallery-overlay">
+              <span class="overlay-text">2024 · 第一届运动会 · 领奖</span>
+            </div>
           </figure>
-          <figure class="gallery-item wide" data-caption="2025 · 第十二届运动会 · 23计算机1班集体荣誉">
-            <div class="gallery-img"><img src="sports-2025.png" alt="2025年第十二届运动会" class="gallery-photo"></div>
+          <figure class="gallery-item feature" data-caption="2025 · 第十二届运动会 · 集体荣誉">
+            <img src="sports-2025.png" alt="2025年第十二届运动会">
+            <div class="gallery-overlay">
+              <span class="overlay-text">2025 · 第十二届运动会 · 集体荣誉</span>
+            </div>
           </figure>
-          <figure class="gallery-item" data-caption="实训室 · 敲下的每一行代码">
-            <div class="gallery-img g2"><span>💻</span></div>
+          <figure class="gallery-item emoji-card" data-caption="实训室 · 敲下的每一行代码">
+            <div class="emoji-content">
+              <span class="emoji">💻</span>
+              <span class="emoji-label">实训室 · 敲下的每一行代码</span>
+            </div>
           </figure>
-          <figure class="gallery-item" data-caption="食堂 · 抢最后一份鸡腿">
-            <div class="gallery-img g4"><span>🍗</span></div>
+          <figure class="gallery-item emoji-card" data-caption="食堂 · 抢最后一份鸡腿">
+            <div class="emoji-content">
+              <span class="emoji">🍗</span>
+              <span class="emoji-label">食堂 · 抢最后一份鸡腿</span>
+            </div>
           </figure>
-          <figure class="gallery-item" data-caption="2026 · 毕业 · 不说再见">
-            <div class="gallery-img g6"><span>🎓</span></div>
+          <figure class="gallery-item emoji-card" data-caption="2026 · 毕业 · 不说再见">
+            <div class="emoji-content">
+              <span class="emoji">🎓</span>
+              <span class="emoji-label">2026 · 毕业 · 不说再见</span>
+            </div>
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="wishes" class="section section-alt">
+    <section id="wishes" class="section section-dark">
       <div class="container">
-        <span class="section-tag">WISHES</span>
-        <h2>毕业寄语</h2>
+        <div class="section-header">
+          <span class="section-tag">WISHES</span>
+          <h2>毕业寄语</h2>
+        </div>
         <div class="wishes-grid">
-          <div class="wish-card">
+          <div class="wish-card glass-card">
+            <div class="wish-avatar">🧑‍🏫</div>
             <div class="wish-from">班主任</div>
             <p>愿你们带着母校的祝福，勇敢追梦。记住：无论走多远，这里永远是你们的家。</p>
           </div>
-          <div class="wish-card">
+          <div class="wish-card glass-card">
+            <div class="wish-avatar">👩</div>
             <div class="wish-from">同学 A</div>
             <p>三年太短，还没来得及说够谢谢。希望十年后我们还能在同学会上笑着提起今天的自己。</p>
           </div>
-          <div class="wish-card">
+          <div class="wish-card glass-card">
+            <div class="wish-avatar">👦</div>
             <div class="wish-from">同学 B</div>
             <p>那些一起刷题、一起吐槽、一起做梦的日子，我会一直记得。毕业快乐，未来见！</p>
           </div>
         </div>
 
-        <div class="wish-form-wrap">
+        <div class="wish-form-wrap glass-card">
           <h3>写下你的祝福</h3>
           <form class="wish-form" id="wishForm">
             <input type="text" name="name" placeholder="你的名字" required maxlength="20">
             <textarea name="wish" rows="3" placeholder="想对同学或老师说的话…" required maxlength="200"></textarea>
-            <button type="submit">挂上祝福牌 🎋</button>
+            <button type="submit">
+              <span>挂上祝福牌</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </form>
           <ul class="wish-wall" id="wishWall"></ul>
         </div>
@@ -190,9 +244,10 @@
     </section>
 
     <section class="farewell">
+      <div class="farewell-bg"></div>
       <div class="container">
-        <h2>毕业快乐</h2>
-        <p>此去经年，愿你我皆得所愿</p>
+        <h2 class="farewell-title">毕业快乐</h2>
+        <p class="farewell-sub">此去经年，愿你我皆得所愿</p>
         <div class="farewell-tags">
           <span>#23计算机1班</span>
           <span>#荆州技师学院</span>
@@ -205,12 +260,12 @@
 
   <footer class="footer">
     <p>荆州技师学院 · 23计算机1班 · 2026 届毕业纪念</p>
-    <p class="footer-sub">Made with ❤️ for the ones we won't forget</p>
+    <p class="footer-sub">Made with love for the ones we won't forget</p>
   </footer>
 
   <div class="lightbox" id="lightbox" hidden>
-    <button class="lightbox-close" aria-label="关闭">×</button>
-    <img class="lightbox-img" id="lightboxImg" alt="" hidden>
+    <button class="lightbox-close" aria-label="关闭">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" alt="">
     <p class="lightbox-caption"></p>
   </div>
 
