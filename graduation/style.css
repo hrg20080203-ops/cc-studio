@@ -226,7 +226,7 @@ a[href*="jzjsxy"]:hover {
 
 /* Gallery */
 .gallery {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
 }
 .gallery-item {
   position: relative; margin: 0; border-radius: var(--radius); overflow: hidden;
@@ -368,7 +368,7 @@ a[href*="jzjsxy"]:hover {
   .story-visual { height: 300px; }
 
   .gallery { grid-template-columns: 1fr 1fr; }
-  .gallery-item.feature { grid-column: span 2; }
+  .gallery-item.feature { grid-column: span 1; }
 
   .timeline-item { gap: 20px; }
   .timeline-marker { width: 40px; }
