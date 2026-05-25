@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的网页</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">CC Studio</a>
+      <ul class="nav-links">
+        <li><a href="#about">关于</a></li>
+        <li><a href="#features">特色</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">欢迎访问</p>
+      <h1>打造你的<br><span>下一个想法</span></h1>
+      <p class="hero-desc">一个简洁、现代的单页网站模板，开箱即用，随时扩展。</p>
+      <div class="hero-actions">
+        <a href="#features" class="btn btn-primary">开始探索</a>
+        <a href="#contact" class="btn btn-outline">联系我</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>向下滚动</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-label">关于</div>
+        <h2>简单，但不简陋</h2>
+        <p class="section-lead">
+          这个页面使用纯 HTML、CSS 和 JavaScript 构建，无需框架即可运行。
+          你可以在此基础上添加更多页面、功能或接入后端。
+        </p>
+      </div>
+    </section>
+
+    <section id="features" class="section section-dark">
+      <div class="container">
+        <div class="section-label">特色</div>
+        <h2>核心亮点</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>轻量快速</h3>
+            <p>无依赖、加载快，适合个人项目与原型展示。</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">📱</div>
+            <h3>响应式设计</h3>
+            <p>在手机、平板和桌面端都能良好显示。</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>现代风格</h3>
+            <p>深色主题搭配渐变与动效，视觉清晰有层次。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-label">联系</div>
+        <h2>保持联系</h2>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <label>
+              姓名
+              <input type="text" name="name" placeholder="你的名字" required>
+            </label>
+            <label>
+              邮箱
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+          </div>
+          <label>
+            留言
+            <textarea name="message" rows="4" placeholder="想说点什么…" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">发送消息</button>
+        </form>
+        <p class="form-note" id="formNote"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 CC Studio. 用 ❤️ 构建。</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
