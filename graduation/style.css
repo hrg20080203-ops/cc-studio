@@ -179,12 +179,17 @@ a[href*="jzjsxy"]:hover {
   border: 1px solid var(--border); transform: rotate(-3deg); z-index: 1;
   box-shadow: 0 16px 48px rgba(0,0,0,0.4);
 }
-.school-badge {
-  width: 100%; height: 100%; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 12px;
+.story-photo-sub img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
-.badge-icon { font-size: 3rem; }
-.badge-text { font-size: 0.95rem; color: var(--text-muted); letter-spacing: 0.05em; }
+.school-link {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 10px; text-align: center; font-size: 0.82rem;
+  color: var(--text); background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px); text-decoration: none;
+  transition: color 0.25s;
+}
+.school-link:hover { color: var(--accent-1); }
 
 /* Glass cards */
 .glass-card {
