@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CC Studio · 创意开发工作室</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04040e;--surface:rgba(255,255,255,0.025);--border:rgba(255,255,255,0.05);
+  --text:#e8e8f0;--muted:#8888a0;--a1:#6366f1;--a2:#a855f7;--a3:#ec4899;
+  --grad:linear-gradient(135deg,#6366f1,#a855f7,#ec4899);--r:18px;--nh:72px;
+}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+.ct{max-width:1140px;margin:0 auto;padding:0 32px}
+
+/* Nav */
+.nav{position:fixed;top:0;z-index:99;width:100%;height:var(--nh);background:rgba(4,4,14,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-i{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:1140px;margin:0 auto;padding:0 32px}
+.logo{font-weight:900;font-size:1.15rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-ls{display:flex;gap:36px;list-style:none}
+.nav-ls a{font-size:.84rem;color:var(--muted);text-decoration:none;transition:color .25s}
+.nav-ls a:hover{color:var(--text)}
+.menu{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:4px}
+.menu span{width:22px;height:2px;background:var(--text);border-radius:2px}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:var(--nh) 32px 80px}
+.hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 50% 40% at 50% 20%,rgba(99,102,241,.2),transparent),radial-gradient(ellipse 40% 30% at 80% 70%,rgba(168,85,247,.12),transparent);pointer-events:none}
+.hero-c{position:relative;z-index:1;max-width:760px}
+.badge{display:inline-block;padding:8px 20px;border:1px solid rgba(99,102,241,.35);border-radius:999px;font-size:.74rem;letter-spacing:.28em;color:var(--a1);background:rgba(99,102,241,.06);margin-bottom:36px}
+.hero-c h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:900;line-height:1.1;margin-bottom:24px}
+.gr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-c .sub{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto 44px;line-height:1.9}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:999px;font-weight:600;font-size:.95rem;cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s;border:none}
+.btn-p{background:var(--grad);color:#fff}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(99,102,241,.4)}
+.btn-o{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.12);margin-left:12px}
+.btn-o:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.03)}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:60px;padding:28px 40px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);flex-wrap:wrap}
+.stat{text-align:center}
+.stat .n{font-size:2rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat .l{font-size:.78rem;color:var(--muted);display:block;margin-top:2px}
+
+/* Sections */
+.s{padding:100px 0}
+.s-dark{background:rgba(255,255,255,0.012)}
+.sh{text-align:center;margin-bottom:60px}
+.sh .tag{font-size:.7rem;letter-spacing:.22em;color:var(--a2);display:block;margin-bottom:8px}
+.sh h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:700}
+
+/* Services */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:40px 30px;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(99,102,241,.25);transform:translateY(-4px)}
+.card .ic{font-size:2.6rem;margin-bottom:20px;display:block}
+.card h3{font-size:1.1rem;margin-bottom:12px}
+.card p{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* Work */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.work{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;cursor:pointer;transition:transform .3s}
+.work:hover{transform:scale(1.03)}
+.work .bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.work .cap{position:absolute;bottom:0;left:0;right:0;padding:14px 20px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);font-size:.88rem;font-weight:500}
+.w1{background:linear-gradient(135deg,#6366f1,#4f46e5)}
+.w2{background:linear-gradient(135deg,#a855f7,#7c3aed)}
+.w3{background:linear-gradient(135deg,#06b6d4,#0891b2)}
+.w4{background:linear-gradient(135deg,#ec4899,#be185d)}
+
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:44px 32px;text-align:center;transition:border-color .3s,transform .3s;position:relative}
+.plan:hover{transform:translateY(-4px)}
+.plan.pop{border-color:rgba(99,102,241,.35);background:rgba(99,102,241,.04)}
+.plan .tag-p{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;padding:4px 16px;border-radius:999px;font-size:.72rem;font-weight:600}
+.plan h3{font-size:1.2rem;margin-bottom:8px}
+.plan .price{font-size:2.4rem;font-weight:900;margin:20px 0 8px}
+.plan .price span{font-size:.9rem;font-weight:400;color:var(--muted)}
+.plan .feat{list-style:none;margin:28px 0;display:flex;flex-direction:column;gap:12px}
+.plan .feat li{font-size:.88rem;color:var(--muted)}
+.plan .feat li::before{content:"✓ ";color:var(--a1);font-weight:700}
+.plan .btn{width:100%;justify-content:center}
+
+/* Contact */
+.form-wrap{max-width:600px;margin:0 auto}
+.form-wrap form{display:flex;flex-direction:column;gap:16px}
+.form-wrap input,.form-wrap textarea{padding:16px 20px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);font-size:.95rem;font-family:inherit;transition:border-color .25s}
+.form-wrap input:focus,.form-wrap textarea:focus{outline:none;border-color:var(--a1)}
+.form-wrap textarea{resize:vertical;min-height:110px}
+.form-wrap .btn{align-self:flex-start}
+.note{color:var(--a1);font-size:.88rem;margin-top:12px;min-height:1.4em}
+
+/* Footer */
+.ft{padding:40px 32px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:.84rem}
+.ft .slogan{margin-top:4px;font-size:.75rem;opacity:.5}
+
+/* Fade */
+.rev{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.rev.on{opacity:1;transform:translateY(0)}
+
+/* Canvas */
+#bg-canvas{position:fixed;inset:0;pointer-events:none;z-index:0}
+
+/* Mobile */
+@media(max-width:768px){
+  .nav-ls{display:none;position:absolute;top:var(--nh);left:0;right:0;flex-direction:column;gap:0;background:rgba(4,4,14,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-ls.open{display:flex}
+  .nav-ls a{display:block;padding:18px 32px}
+  .menu{display:flex}
+  .grid2{grid-template-columns:1fr}
+  .btn-o{margin-left:0;margin-top:12px}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-i">
+    <span class="logo">CC Studio</span>
+    <ul class="nav-ls" id="navLinks">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#services">服务</a></li>
+      <li><a href="#work">作品</a></li>
+      <li><a href="#pricing">价格</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+    <button class="menu" id="menuToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-c">
+    <div class="badge">WEB · AI · DESIGN</div>
+    <h1>用<span class="gr">代码与AI</span><br>创造价值</h1>
+    <p class="sub">从品牌网站到AI自动化工具，帮助学生、商家和创业者用最小成本获得最好的数字产品。</p>
+    <div>
+      <a href="#work" class="btn btn-p">查看作品 →</a>
+      <a href="#contact" class="btn btn-o">联系合作</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="n">30+</span><span class="l">完成项目</span></div>
+      <div class="stat"><span class="n">100%</span><span class="l">客户好评</span></div>
+      <div class="stat"><span class="n">24h</span><span class="l">平均交付</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="services" class="s">
+    <div class="ct">
+      <div class="sh"><span class="tag">SERVICES</span><h2>我能做什么</h2></div>
+      <div class="grid3">
+        <div class="card rev">
+          <span class="ic">🌐</span>
+          <h3>网站开发</h3>
+          <p>响应式官网、活动页面、个人作品集、毕业纪念站。纯HTML/CSS/JS，快速交付，免费部署。</p>
+        </div>
+        <div class="card rev">
+          <span class="ic">🤖</span>
+          <h3>AI 自动化</h3>
+          <p>用AI帮你批量处理数据、生成文案、优化简历、制作PPT大纲，省时省力效率翻倍。</p>
+        </div>
+        <div class="card rev">
+          <span class="ic">🎨</span>
+          <h3>品牌设计</h3>
+          <p>Logo设计、配色方案、品牌视觉系统的搭建，让你的品牌从里到外都专业。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="s s-dark">
+    <div class="ct">
+      <div class="sh"><span class="tag">PORTFOLIO</span><h2>近期作品</h2></div>
+      <div class="grid2">
+        <div class="work rev w1"><span class="bg">🖥️</span><span class="cap">科技公司品牌官网</span></div>
+        <div class="work rev w2"><span class="bg">📱</span><span class="cap">电商小程序界面</span></div>
+        <div class="work rev w3"><span class="bg">🎯</span><span class="cap">SaaS产品落地页</span></div>
+        <div class="work rev w4"><span class="bg">🛍️</span><span class="cap">潮流品牌商城</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="s">
+    <div class="ct">
+      <div class="sh"><span class="tag">PRICING</span><h2>透明定价</h2></div>
+      <div class="pricing">
+        <div class="plan rev">
+          <h3>基础站</h3>
+          <div class="price">￥200<span>/个</span></div>
+          <ul class="feat"><li>单页响应式设计</li><li>深色/浅色主题</li><li>动效与交互动画</li><li>免费部署上线</li><li>1次修改</li></ul>
+          <a href="#contact" class="btn btn-o">选这个</a>
+        </div>
+        <div class="plan rev pop">
+          <span class="tag-p">最受欢迎</span>
+          <h3>标准站</h3>
+          <div class="price">￥400<span>/个</span></div>
+          <ul class="feat"><li>多页面完整网站</li><li>含品牌Logo设计</li><li>联系表单/留言板</li><li>手机平板全适配</li><li>3次修改</li></ul>
+          <a href="#contact" class="btn btn-p">选这个</a>
+        </div>
+        <div class="plan rev">
+          <h3>定制站</h3>
+          <div class="price">￥800<span>/个</span></div>
+          <ul class="feat"><li>完全定制设计</li><li>后端/数据库接入</li><li>AI功能集成</li><li>SEO优化</li><li>无限修改</li></ul>
+          <a href="#contact" class="btn btn-o">选这个</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="s s-dark">
+    <div class="ct">
+      <div class="sh"><span class="tag">CONTACT</span><h2>开始合作</h2></div>
+      <div class="form-wrap rev">
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="你的名字" required>
+          <input type="email" name="email" placeholder="邮箱地址" required>
+          <textarea name="msg" placeholder="描述你的需求..." required></textarea>
+          <button type="submit" class="btn btn-p">提交需求 →</button>
+        </form>
+        <p class="note" id="formNote"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <p>CC Studio · Creative Code Studio</p>
+  <p class="slogan">Built with passion. Powered by AI.</p>
+</footer>
+
+<script>
+/* Particles */
+(function(){
+  var c=document.getElementById('bg-canvas'),ctx=c.getContext('2d'),w,h,ps=[];
+  function R(){w=c.width=innerWidth;h=c.height=innerHeight}
+  R();addEventListener('resize',R);
+  function P(){this.x=Math.random()*w;this.y=Math.random()*h;this.r=Math.random()*2+.4;this.vy=-(Math.random()*.35+.06);this.vx=(Math.random()-.5)*.25;this.a=Math.random()*.5+.1;this.h=Math.random()*60+230}
+  for(var i=0;i<70;i++)ps.push(new P());
+  function L(){ctx.clearRect(0,0,w,h);ps.forEach(function(p){p.y+=p.vy;p.x+=p.vx;if(p.y<-5)p.y=h+5;if(p.x<-5)p.x=w+5;if(p.x>w+5)p.x=-5;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='hsla('+p.h+',70%,65%,'+p.a+')';ctx.fill()});requestAnimationFrame(L)}
+  L()
+})();
+
+/* Mobile menu */
+document.getElementById('menuToggle').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')});
+
+/* Reveal */
+(function(){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});document.querySelectorAll('.rev').forEach(function(el){o.observe(el)})})();
+
+/* Form */
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('formNote');n.textContent='消息已收到，我会尽快联系你！';this.reset();setTimeout(function(){n.textContent=''},4000)});
+</script>
+</body>
+</html>
